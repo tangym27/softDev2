@@ -1,25 +1,28 @@
+<!--
+Michelle Tang
+SoftDev2 PD6
+K#00 -- I See a Red Door
+2019-01-31
+-->
+
 <!DOCTYPE html>
 <html>
 	<style>
 	#slate {border:1px solid black}
 	</style>
-	<h1>Bonjour monde!</h1>
-	<h2>Demo</h2>
-	<div>
-		<canvas height="600" width="600" id="slate">
-      dis dat alt txt
-		</canvas>
-	</div>
+	<body>
+		<h1>Bonjour monde!</h1>
+		<h2> I See a Red Door</h2>
+		<div>
+			<!-- start up a canvas -->
+			<canvas height="600" width="600" id="slate">
+				dis dat alt txt
+			</canvas>
+		</div>
+
+		<button id="toggle">draw-a-rectangle!</button>
+		<button id="clear">Clear!</button>
+	</body>
+	<script src="clickdraw.js"></script>
+
 </html>
-
-
-<!--  Run in JS
-var c = document.getElementById("slate")
-var ctx = c.getContext("2d");
-ctx.fillRect(50,50,100,200);
-ctx.fillStyle= "#ff0000";
-fillStyle()
-strokeStyle()
-clearRect()
-fillText()
--->
