@@ -38,8 +38,8 @@ c.addEventListener('click', function(e) {
   // Finds out the location of your mouse when you click by removing previous padding
   var x = e.offsetX;
   var y = e.offsetY;
+
   if (first){ // if this is the first time you are drawing on the canvas, it will save the previous coordinates as the first
-    ctx.beginPath();
     lastx = x;
     lasty = y;
     first = false; //already has baseline
@@ -54,8 +54,9 @@ c.addEventListener('click', function(e) {
   drawnOn= true; // the user has drawn something
   warning.innerHTML = ""; // gets rid of any previous warnings
   // update to new coordinates
-  if (!first){
+  if(!first){
     lastx = x;
     lasty = y;
   }
+
 });
