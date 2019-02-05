@@ -1,4 +1,4 @@
-// Clara Mohiri & Michelle Tang
+// Michelle Tang
 // SoftDev2 pd6
 // K#03 -- They lock us in the tower whenever we get caught
 // 2019-02-05
