@@ -42,3 +42,5 @@ def query_creative(zip, cuisA):
 	restaurants = collection.find({'$and': [{"address.zipcode": zip }, {"cuisine": cuisA}]})
 	for restaurant in restaurants:
 		print(restaurant)
+
+print(query_borough("Brooklyn"))
