@@ -37,8 +37,8 @@ def query_threshold(zip, score):
 		print(restaurant)
 
 # All restaurants in a specified zip code that is one of two specified cuisines
-def query_creative(zip, cuisA, cuisB):
+def query_creative(zip, cuisA):
 	zip = str(zip)
-	restaurants = collection.find({'$and': [{"address.zipcode": zip }, '$or': [{"cuisine": cuisA}, {"cuisine": cuisB }]]})
+	restaurants = collection.find({'$and': [{"address.zipcode": zip }, {"cuisine": cuisA}]})
 	for restaurant in restaurants:
 		print(restaurant)
