@@ -43,4 +43,3 @@ def query_creative(zip, cuisA):
 	for restaurant in restaurants:
 		print(restaurant)
 
-print(query_borough("Brooklyn"))
