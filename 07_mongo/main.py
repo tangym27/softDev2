@@ -1,4 +1,7 @@
 # Team GoodEeevening
+# https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json
+# mongoimport --db GoodEeevening --collection poke --jsonArray --file ~/softDev2/07_mongo/pokemon.json
+
 import pymongo
 
 SERVER_ADDR="104.248.230.23"
@@ -6,7 +9,6 @@ connection =pymongo.MongoClient(SERVER_ADDR)
 db = connection.GoodEeevening
 collection = db.poke
 
-# mongoimport --db GoodEeevening --collection poke --jsonArray --file ~/softDev2/07_mongo/db.json
 
 #given a number, return a pokemon
 def query_num(num):
@@ -36,7 +38,11 @@ def query_candy_count(num):
 
 print ("Testing\n\n\n\n")
 print (query_num("007"))
+print ("Testing\n\n\n\n")
+
 print (query_name("Blastoise"))
+print ("Testing\n\n\n\n")
+
 print (query_type("Water"))
 print (query_weakness("Water"))
 print (query_candy_count(12))
