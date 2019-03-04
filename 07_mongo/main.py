@@ -1,6 +1,15 @@
-# Team GoodEeevening
-# https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json
-# mongoimport --db GoodEeevening --collection poke --jsonArray --file ~/softDev2/07_mongo/pokemon.json
+# Team GoodEeevening -- Michelle Tang & Kyle Tau
+# SoftDev2 pd 6
+# K07 -- Import/Export Bank
+# 2019-03-04
+
+'''
+Dataset: Pokedex (Pokemon GO Pokedex)
+Contents: This dataset contains all the information about Gen 1 Pokemon from the Pokemon GO game including ID number, physical stats, spawn chances, and weaknesses.
+Link: https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json
+Import mechanism: mongoimport --db GoodEeevening --collection poke --jsonArray --file ~/PATH TO/pokemon.json
+    **Create database GoodEeevening with collection poke importing from the pokemon.json file**
+'''
 
 import pymongo
 
