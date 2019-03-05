@@ -19,39 +19,47 @@ db = connection.GoodEeevening
 collection = db.poke
 
 
-#given a number, return a pokemon
+#given a number, return the stats of that pokemon
 def query_num(num):
     pokemon = collection.find({'num':num})
     for poke in pokemon:
         print poke
 
+#given a name, return the stats of that pokemon
 def query_name(name):
     pokemon = collection.find({'name':name})
     for poke in pokemon:
         print poke
 
+#given a type, return the stats of all the pokemon with that type
 def query_type(type):
     pokemon = collection.find({'type':[type]})
     for poke in pokemon:
         print poke
 
+#given a weakness, return the stats of all the pokemon with that single weakness
 def query_weakness(type):
     pokemon = collection.find({'type':[type]})
     for poke in pokemon:
         print poke
 
+#given a number, return the stats of all the pokemon with that candy count number
 def query_candy_count(num):
     pokemon = collection.find({'candy_count':num})
     for poke in pokemon:
         print poke
 
-print ("Testing\n\n\n\n")
+print ("Testing query_num")
 print (query_num("007"))
-print ("Testing\n\n\n\n")
 
+print ("Testing query_name")
 print (query_name("Blastoise"))
-print ("Testing\n\n\n\n")
 
+print ("Testing query_type")
 print (query_type("Water"))
+
+print ("Testing query_weakness")
 print (query_weakness("Water"))
+
+print("Testing query_candy_count")
 print (query_candy_count(12))
