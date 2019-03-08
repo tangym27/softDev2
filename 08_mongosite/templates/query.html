@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      MONGOnificient
+    </title>
+    <meta charset="utf-8">
+
+  </head>
+
+  <body>
+
+    <form action ="/query" method="POST">
+      Please enter the nobel prize data you want to search
+      <select name="type">
+        <option value="year">Year</option>
+        <option value="category">Category</option>
+        <option value="topic">Topic</option>
+      </select>
+      <input type="text" name="topic" >
+      <input type="submit" name="process" value="submit">
+   </form> <br>
+
+   {% for entry in data %}
+      <br>
+      Year: {{entry["year"]}} <br>
+      category: {{entry["category"]}} <br> {
+      {% for laureate in entry["laureates"] %}
+        <br>{{laureate["firstname"]}} , {{laureate["surname"]}}<br>
+        Motivation: {{laureate["motivation"] }} <br>
+      {% endfor %}
+    }<br>
+   {% endfor %}
+  </body>
+</html>
