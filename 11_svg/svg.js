@@ -54,17 +54,21 @@ var move_dot = function() {
   requestID = window.requestAnimationFrame(move_dot);
 }
 
+
 pic.addEventListener('click', function(e) {
-  e.preventDefault();
   if (e.target.getAttribute("id") == "vimage"){
-        create(e.offsetX,e.offsetY);
-    }
+    create(e.offsetX, e.offsetY);
+  };
 })
 
-clear.addEventListener('click', function(e) {
-  pic.innerHTML = '';
-  var start = true;
-})
+clear.addEventListener("click", function() {
+	var blank = pic.firstChild;
+	while(blank){
+	    pic.removeChild(blank);
+	    blank = pic.firstChild;
+	}
+});
+
 
 move.addEventListener('click', function(e) {
   if(!moving) {
