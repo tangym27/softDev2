@@ -11,17 +11,17 @@ var clear = document.getElementById('clear');
 
 var create = function(x,y) {
   var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  circle.setAttribute("fill", "blue");
+  circle.setAttribute("fill", "red");
   circle.setAttribute("cx", x);
   circle.setAttribute("cy", y);
-  circle.setAttribute("r", "10")
+  circle.setAttribute("r", "100")
   pic.appendChild(circle);
   circle.addEventListener('click', change);
   pic.appendChild(circle);
 }
 
 var change = function(e) {
-  if(e.target.getAttribute('fill') === 'blue') {
+  if(e.target.getAttribute('fill') === 'red') {
     e.target.setAttribute('fill', 'green');
   }
   else {
