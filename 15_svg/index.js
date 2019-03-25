@@ -1,26 +1,59 @@
-var width = 420,
-    barHeight = 20;
 
-var x = d3.scale.linear().range([0, width]);
+var IDs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var age =[44, 33, 22, 11, 49, 13, 32, 27, 23, 23]
 
-var chart = d3.select(".chart").attr("width", width);
+var width = 1000;
+var height = 1000;
+var svg = d3.select(".chart").attr("width", width).attr("height", height)
 
-d3.tsv("data.tsv", type, function(error, data) {
-    x.domain([0, d3.max(data, function(d) { return d.value; })]);
-    chart.attr("height", barHeight * data.length);
-    var bar = chart.selectAll("g").data(data)
-                    .enter().append("g").attr("transform", function (d, i) {
-                                                            return "translate(0," + i * barHeight + ")"; });
-    bar.append("rect").attr("width", function (d) {
-                                        return x(d.value);})
-                        .attr("height", barHeight - 1);
-    bar.append("text").attr("x", function (d){
-                                    return x(d.value) - 3;})
-                        .attr("y", barHeight / 2)
-                        .attr("dy", ".35em")
-                        .text(function(d) { return d.value; });
-});
-function type(d) {
-    d.value = +d.value;
-    return d;
+var i = 0;
+while (i < IDs.length){
+  var circle = svg.append("circle")
+      .attr("cx", function(e){return 50+100*IDs[i]})
+      .attr("cy", function(e){return ((100+(d3.max(age)+1)*6)-(6*age[i]))})
+      .attr("r", 5);
+  i += 1;
 }
+
+
+var x_scale = d3.scaleLinear()
+    .domain([0,d3.max(IDs)+2])
+    .range([0, (d3.max(IDs)+2)*100]);
+
+var y_scale = d3.scaleLinear()
+    .domain([0,d3.max(age)+1])
+    .range([30+(d3.max(age)+1)*6,0]);
+
+var x = d3.axisBottom()
+    .scale(x_scale)
+
+var y_axis = d3.axisLeft()
+    .scale(y_scale)
+
+var chart = d3.select(".chart")
+chart.append('g')
+    .attr("transform","translate (50,420)")
+    .call(x)
+
+chart.append('g')
+    .attr("transform","translate (50,100)")
+    .call(y_axis)
+
+chart.append("text")
+    .attr("x",width / 2 - 150)
+    .attr("y", 0)
+    .attr("dy","2em")
+    .text("Peeps from Notes and Code");
+
+chart.append("text")
+    .attr("x",width/2-150)
+    .attr("y",height/2-70)
+    .attr("dy","2em")
+    .text("ID");
+
+chart.append("text")
+    .attr("transform","rotate(-90)")
+    .attr("x",-240)
+    .attr("y",10)
+    .attr("dy","1em")
+    .text("Ages");
