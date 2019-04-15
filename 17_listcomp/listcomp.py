@@ -12,19 +12,12 @@ def loopyOne():
         var += 2
     return num
 
-print( " 1A: ")
-print(loopyOne())
-
 # 1b
 def listcompOne():
     nums = "02468"
     array = [x + x for x in nums]
     return array
 
-print( " 1B: ")
-print(listcompOne())
-
-print ("\n==============\n")
 # 2a
 def loopyTwo():
     var = 0
@@ -34,19 +27,10 @@ def loopyTwo():
         var += 1
     return num
 
-print( " 2A: ")
-print(loopyTwo())
-
 # 2b
 def listcompTwo():
-    nums = "01234"
-    array = [ int(x + "7") for x in nums]
-    return array
+    return [x*10+7 for x in range(5)]
 
-print( " 2B: ")
-print(listcompTwo())
-
-print ("\n==============\n")
 # 3a
 def loopyThree():
     var = 0
@@ -62,23 +46,11 @@ def loopyThree():
     num.pop()
     return num
 
-print( " 3A: ")
-print(loopyThree())
-
-# 3b
+#3b
 def listcompThree():
-    nums = "012"
-    array0 = [ 0*int(x) for x in nums]
-    array1 = [ 1*int(x) for x in nums]
-    array2 = [ 2*int(x) for x in nums]
-    array1.extend(array2)
-    array0.extend(array1)
-    return array0
+    return [ x*y for x in range(3) for y in range(3) ]
 
-print( " 3B: ")
-print(listcompThree())
-
-# Helper function for prime and composite!
+# 4&5 : Helper function for prime and composite!
 def sieve():
     n = 100
     prime = []
@@ -93,28 +65,8 @@ def sieve():
         p += 1
     return prime
 
-print ("\n==============\n")
 # 4a
 def loopyFour():
-    prime = sieve()
-    primes =[]
-    for p in range(2, 100):
-        if prime[p]:
-            primes.append(p)
-    return primes
-
-print( " 4A: ")
-print (loopyFour())
-
-# 4b
-def listcompFive():
-    pass
-
-
-# print(listcompFive())
-print ("\n==============\n")
-# 5a
-def loopyFive():
     composite = sieve()
     composites =[]
     for p in range(0, 101):
@@ -122,9 +74,62 @@ def loopyFive():
             composites.append(p)
     return composites
 
-print( " 5A: ")
-print (loopyFive())
+# 4b
+def listcompFour():
+    return [i for i in range(2, 101) if 1 in [1 if i%j == 0 else 0 for j in range(2, i)]]
 
-# 5b
+# 5a
+def loopyFive():
+    prime = sieve()
+    primes =[]
+    for p in range(2, 100):
+        if prime[p]:
+            primes.append(p)
+    return primes
+
+#5b
 def listcompFive():
-    pass
+    return [i for i in range(2, 101) if 1 not in [1 if i%j == 0 else 0 for j in range(2, i)]]
+
+#6a
+def loopySix(n):
+    i = 1
+    list = []
+    while (i < n):
+        if not n%i:
+            list.append(i)
+        i +=1
+    list.append(n)
+    return list
+
+#6b
+def listcompSix(n):
+    list = [i for i in range(n) if i > 0 and n%i == 0]
+    list.append(n)
+    return list
+
+
+print( " 1: ? -> ['00', '22', '44', '66', '88'] ")
+print(" 1A: " + str(loopyOne()))
+print(" 1B: " + str(listcompOne()))
+print ("\n==========================================\n")
+print( " 2: ? -> [7, 17, 27, 37, 47] ")
+print( " 2A: " + str(loopyTwo()))
+print( " 2B: " + str(listcompTwo()))
+print ("\n==========================================\n")
+print( " 3: ? -> [0, 0, 0, 0, 1, 2, 0, 2, 4] ")
+print( " 3A: " + str(loopyThree()))
+print( " 3B: " + str(listcompThree()))
+print ("\n==========================================\n")
+print( " 4: Composites on range [0,100], in ascending order. ")
+print( " 4A: " + str(loopyFour()))
+print( " 4B: " + str(listcompFour()))
+print ("\n==========================================\n")
+print( " 5: Primes on range [0,100], in ascending order. ")
+print( " 5A: " + str(loopyFive()))
+print( " 5B: " + str(listcompFive()))
+print ("\n==========================================\n")
+print( " 6: All divisors of a number, listed in ascending order. ")
+print( " 6A: " + str(loopySix(100)))
+print( " 6B: " + str(listcompSix(100)))
+print ("\n==========================================\n")
