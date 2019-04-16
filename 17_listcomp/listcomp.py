@@ -108,6 +108,20 @@ def listcompSix(n):
     list.append(n)
     return list
 
+# 7a
+def loopySeven(matrix):
+    # i = inner list; j = outer list
+    transpose = []
+    for i in range(len(matrix[0])):
+        transpose.append([])
+        for j in range(len(matrix)):
+            transpose[i].append(matrix[j][i])
+    return transpose
+
+#7b
+def listcompSeven(matrix):
+    transpose = [ [ matrix[j][i] for j in range(len(matrix)) ] for i in range(len(matrix[0])) ]
+    return transpose
 
 print( " 1: ? -> ['00', '22', '44', '66', '88'] ")
 print(" 1A: " + str(loopyOne()))
@@ -134,6 +148,7 @@ print( " 6A: " + str(loopySix(100)))
 print( " 6B: " + str(listcompSix(100)))
 print ("\n==========================================\n")
 print( " 7: Transpose a matrix (turn rows into columns and vice-versa...). ")
-print( " 7A: " + str(loopySeven()))
-print( " 7B: " + str(listcompSeven()))
+array = [[0, 1], [2, 3], [4, 5]]
+print( " 7A: " + str(loopySeven(array)))
+print( " 7B: " + str(listcompSeven(array)))
 print ("\n==========================================\n")
