@@ -42,3 +42,20 @@ def even(a, b):
 
 print("even")
 print(even([1,2,3], [2,3,4]))
+
+#
+
+prod = 1
+list = [1,2,23,4]
+
+from functools import reduce
+reduce( fxn, list) -> 24
+so
+
+reduce ( (laambda x,y: x*y) , [1,2,3,4])
+
+lambda in python:
+must return a value ("evalue to")
+should remind you of scheme/racket/lisp
+conditionals must be in form of a python ternary op:
+exxprA if condition lse exxprB
