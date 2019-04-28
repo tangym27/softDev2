@@ -1,6 +1,6 @@
 # to the lighthouse: Clara Mohri & Michelle Tang
 # SoftDev pd6
-# K #20: wee
+# K #20: Reductio ad Absurdum
 # 2019-04-17
 
 from functools import reduce
