@@ -1,4 +1,4 @@
-# To t
+# Achieve closure.
 def inc(x):
     return x+1
 
